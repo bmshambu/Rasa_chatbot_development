@@ -1,0 +1,32 @@
+intent_name: welcome
+user_input: /welcome
+bot_reply: Welcome to AI chatbot..!!
+intent_name: greet
+user_input: hi
+bot_reply: Hey! how are you?
+intent_name: mood_great
+user_input: fine
+bot_reply: Amazing
+bot_reply: Welcome ..I am your Stocks bot!!!, you can ask stock related quires and report etc...
+bot_reply: We would like to know some information to proceed further would you like to continue ?
+intent_name: inform
+user_input: /inform
+bot_reply: Please enter your name
+intent_name: personal_info
+user_input: shambu
+bot_reply: Please enter your mail id
+intent_name: personal_info
+user_input: bnmshambu134@gmail.com
+bot_reply: Thank you for your input shambu
+bot_reply: How may i help you?
+intent_name: single_query
+user_input: what is minimum opening value?
+bot_reply: Here is the lowest opening value of 486.0 on 2021-01-01 
+bot_reply: Did that help you?
+intent_name: affirm
+user_input: /affirm
+bot_reply: Thank you for contacting chatbot support,Have nice day!
+bot_reply: Please share your valuable feedback..!
+intent_name: feedback
+user_input: /feedback{"feed":"4"}
+bot_reply: Thanks!!..see you around!

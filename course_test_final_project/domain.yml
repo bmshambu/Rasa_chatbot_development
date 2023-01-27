@@ -1,0 +1,219 @@
+version: '3.0'
+intents:
+- affirm
+- fresh_start
+- goodbye
+- greet
+- inform
+- mood_great
+- mood_unhappy
+- personal_info
+- request_personal_info_form
+- sales_query
+- single_query
+- single_query_2
+- slot_reset
+- welcome
+- feedback
+- deny
+entities:
+- mail
+- low
+- avg
+- column_close
+- month
+- column_volume
+- year
+- name
+- query
+- high
+- column_open
+- feed
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: name
+  mail:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: mail
+  month:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: month
+  year:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: year
+  query:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: query
+  high:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: high
+  low:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: low
+  column_open:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: column_open
+  column_close:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: column_close
+  column_volume:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: column_volume
+  avg:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: avg
+  feed:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: feed
+forms:
+  personal_info_form:
+    required_slots:
+    - name
+    - mail
+  simple_query_form:
+    required_slots:
+    - month
+    - year
+  simple_query_2_form:
+    required_slots:
+    - month
+    - year
+responses:
+  utter_greet:
+  - text: Hello!how are you?
+  - text: Hey!!how are you?
+  - text: Wassup? how are you?
+  - text: Hey! how are you?
+  utter_mood_great:
+  - text: Super!
+  - text: I am great.
+  - text: Amazing
+  - text: nice
+  utter_welcome:
+  - text: "Welcome ..I am your Stocks bot!!!,
+           you can ask stock related quires and report etc..." 
+  utter_welcome_again:
+  - text: Welcome again!.. how can help you?
+  utter_do_you_have_question:
+  - text: "We would like to know some information to proceed further
+           would you like to continue ?"
+    buttons:
+    - title: Yes
+      payload: /inform
+    - title: No
+      payload: /goodbye
+  utter_submit:
+  - text: Thank you for your input {name}
+  utter_ask_continue:
+  - text: Are you sure you want to stop the form?
+  utter_ask_name:
+  - text: Please enter your name
+  utter_ask_mail:
+  - text: Please enter your mail id
+  utter_ask_question:
+  - text: How may i help you?
+  utter_ask_month:
+  - text: Enter the required month
+  utter_ask_year:
+  - text: Enter the required Year
+  utter_inform:
+  - text: "your request is registered with us and 
+           we will be sharing you the report to your mail id"
+  utter_goodbye:
+  - text: Thank you for contacting chatbot support,Have nice day!
+  utter_happy:
+  - text: Thank you
+  - text: Welcome
+  utter_ask_rephrase:
+  - text: I'm sorry, I didn't quite understand that and would you rephrase it?
+  utter_does_help:
+  - text: Did that help you?
+    buttons:
+    - title: Yes
+      payload: /affirm
+    - title: No
+      payload: /deny
+    - title: continue  
+      payload: /slot_reset
+  utter_human_support:
+  - text: Okay..! i will handover to our Technical assistant!
+  utter_entry:
+  - text: Welcome to AI chatbot..!!
+  utter_ask_again:
+  - text: How may i help you?
+  utter_feedback:
+  - text: Please share your valuable feedback..!
+    buttons:
+    - title: '1'
+      payload: /feedback{{"feed":"1"}}
+    - title: '2'
+      payload: /feedback{{"feed":"2"}}
+    - title: '3'
+      payload: /feedback{{"feed":"3"}}
+    - title: '4'
+      payload: /feedback{{"feed":"4"}}
+    - title: '5'
+      payload: /feedback{{"feed":"5"}}
+  utter_bye:
+  - text: Thanks!!..see you around!
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- action_avg_value
+- action_fresh_start
+- action_report_gen
+- action_reset_slot_order
+- action_talk_to_agent
+- utter_ask_question
+- utter_does_help
+- utter_goodbye
+- utter_greet
+- utter_human_support
+- utter_inform
+- utter_mood_great
+- utter_submit
+- utter_welcome
+- validate_personal_info_form
+- validate_simple_query_2_form
+- validate_simple_query_form
+- action_single_line_query_1
+- action_save_conversation

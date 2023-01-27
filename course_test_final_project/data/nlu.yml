@@ -1,0 +1,209 @@
+version: "3.1"
+nlu:
+- intent: welcome
+  examples: |
+    - welcome!!
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - what is the highest oepning value
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thank you
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - i m fine thank you
+    - fine
+    - good
+    - nice
+    - super
+    - i am fine
+    - i am super
+    - i am amazing
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: personal_info
+  examples: |
+    - my name is [shambu](name) and [bmshambu134@gmail.com](mail)
+    - [alex](name) and [alex123@gmail.com](mail)
+    - name: [Modi](name) and [modi456@rediff.com](mail)
+    - myself [karan](name) and [karana.B.M.ey@gds.com](mail)
+    - [shambu](name)
+    - my name is [modi]name
+    - my mail id is [modi@yahoo.com](mail)
+    - mail id [sharukh@gmail.com](mail)
+    - my name is [shambu](name)
+    - [bmshambu134@gmail.com](mail)
+    - my mail id is [bmshambu134@gmail.com](mail)
+    - name [shambu](name)
+    - mail id is [bmshambu134@gmail.com](mail)
+    - name is [shambu](name)
+    - mail is [bmshambu134@gmail.com](mail)
+    - my name is [alex](name)
+    - [alex123@gmail.com](mail)
+    - [sharukh](name)
+    - [shhsh@gmail.com](mail)
+    - [bmmmm@gmail.com](mail)
+    - [bmmshambu134@gmail.com](mail)
+    - [sh12mbu](name)
+    - [shambu1](name)
+    - [bmshambu.com@gamil](mail)
+    - [bmshambu34@gmail.com](mail)
+    - [shambu134@gmail.com](mail)
+    - [shan=u](name)
+    - [shambu](name)
+    - [shambu134@gmail.com](mail)
+- intent: sales_query
+  examples: |
+    - i want [stock](query)report for the month of [January](month)
+    - please share the [stock](query) data for the month of [feb](month) and year [2021](year)
+    - i want [2021](year)[stock](query) data
+    - i want the [stock](query) report of the month [jan](month)
+    - [2021](year)
+    - i want to see the [stock](query) report of the year [2021](year)
+    - month [feb](month)
+    - i want to [sale](query) report of [2021](year)
+    - month of [feb](month)
+    - i want [sales](query) report
+    - need [sales](query) report of [2021](year)
+    - i want [sales](query) report of [2021](year)
+    - [feb](month)
+    - [july](month)
+    - [may](month)
+    - [may][{"entity": "month"}, {"entity": "month"}]
+    - i want report of [may][{"entity": "month"}, {"entity": "month"}]
+    - i want [sales](query) report of [july][{"entity": "month"}, {"entity": "month"}] [2021](year)
+    - [2021](year)
+- intent: single_query
+  examples: |
+    - what is the [Highest](high) [opening](column_open) value
+    - what is the [lowest](low) [opening](column_open) value
+    - what is the [Highest](high) [closing] (column_close) value
+    - what is the [lowest](low) [closing](column_close) value
+    - what is the [Highest](high) traded [volume](column_volume)
+    - what is the [lowest](low) traded [volume](column_volume)
+    - [high](high) [opening](column_open) value?
+    - [low](low) [opened](column_open) value?
+    - [high](high) [closed] (column_close) value
+    - [Low](low) [closing](column_close) value
+    - [Higher](high) traded [volume](column_volume)
+    - [lower](low) traded [volume](column_volume)
+    - [Heavily](high) traded [volume](column_volume)
+    - [highest](high) traded [volume](column_volume)
+    - [lowest](low) [opening](column_open) value
+    - [highest](high) [closing](column_close) value
+    - [minimum](low) [opening](column_open) value
+    - [maximum](high) [closing](column_close) value
+    - [max](high) traded [volume](column_volume)
+    - [min](low) traded [volume](column_volume)
+    - [lowest](low) traded [volume](column_volume)
+- intent: fresh_start
+  examples: |
+    - please restart
+    - restart pls
+    - restart
+    - fresh start
+    - start again
+- intent: single_query_2
+  examples: |
+    - what is the [average](avg) [opening](column_open) value
+    - what is the [avg](avg) [opening](column_open) value in the month [aug](month)
+    - what is the [mean](avg) [closing] (column_close) value
+    - what is the [mean](avg) [closing](column_close) value
+    - what is the [Average](avg) traded [volume](column_volume) in month [january](month)
+    - what is the [Avg](avg) traded [volume](column_volume)
+    - [avg](avg) [closing](column_close) value
+    - [aug][{"entity": "month"}, {"entity": "month"}]
+    
+- lookup: month
+  examples: |
+    - january
+    - febrauary
+    - march
+    - april
+    - may
+    - june
+    - july
+    - august
+    - september
+    - october
+    - november
+    - december
+    - jan
+    - feb
+    - mar
+    - jun
+    - jul
+    - aug
+    - sep
+    - oct
+    - nov
+    - dec

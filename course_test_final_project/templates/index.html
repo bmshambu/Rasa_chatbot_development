@@ -1,0 +1,49 @@
+<div id="webchat">
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="https://">
+  <script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+     (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+       (e.async = !0),
+       (e.onload = () => {
+         window.WebChat.default(
+          { 
+             selector: "#webchat",
+            initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to  the socket
+       socketUrl: "http://localhost:5005",
+       socketPath: "/socket.io/",
+       title: "AI-Bot",
+       tooltipPayload: "/welcome",
+       tooltip: true,    
+       tooltipDelay: 500,
+       connectingText: "Waiting for server...",
+       profileAvatar: "{{url_for('static',filename='avatar/bot.png')}}",
+       openLauncherImage: "{{url_for('static',filename='avatar/AI.png')}}",
+
+       params: {"storage": "session"}, 
+  
+      mainColor: "#FFC000",
+      userBackgroundColor: "#FFC000",
+      userTextColor: "#cde9ce",
+      showMessageDate: true,
+      inputTextFieldHint: "Hi.Type your message here...",
+      badge: " ",
+      displayUnreadCount: true,
+      isChatOpen: false,
+      embedded: false,
+      showCloseButton: true,
+      fullScreenMode: true,
+      showFullScreenButton: true,
+      docViewer: false,
+      },
+       null
+    );
+   }),
+   t.insertBefore(e, t.firstChild);
+  })();
+  localStorage.clear();
+ </script>

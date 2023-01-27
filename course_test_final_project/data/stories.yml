@@ -1,0 +1,54 @@
+version: "3.1"
+
+stories:
+
+- story: Welcome path happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_mood_great
+  - action: utter_welcome
+  - action: utter_do_you_have_question
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_mood_great
+  - action: utter_welcome
+  - action: utter_do_you_have_question
+  - intent: inform
+  - action: personal_info_form
+  - active_loop: personal_info_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: shambu
+  - slot_was_set:
+    - name: shambu
+  - slot_was_set:
+    - requested_slot: mail
+  - slot_was_set:
+    - mail: bmshambu34@gmail.com
+  - slot_was_set:
+    - mail: bmshambu34@gmail.com
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_ask_question
+  - intent: single_query
+    entities:
+    - high: highest
+    - column_volume: volume
+  - slot_was_set:
+    - high: highest
+  - slot_was_set:
+    - column_volume: volume
+  - action: action_single_line_query_1
+  - action: utter_does_help

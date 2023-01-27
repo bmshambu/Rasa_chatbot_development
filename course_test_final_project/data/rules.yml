@@ -1,0 +1,111 @@
+version: "3.1"
+
+rules:
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_ask_rephrase
+  
+- rule: Start the chatbot asking personal_info when user has questions
+  steps:
+  - action: personal_info_form
+  - active_loop: personal_info_form
+  
+  
+- rule: Submit personal_info Form
+  condition:
+  - active_loop: personal_info_form
+  steps:
+  - action: personal_info_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_ask_question
+ 
+- rule: ask query related questions
+  steps:
+  - intent: sales_query
+  - action: simple_query_form
+  - active_loop: simple_query_form
+
+- rule: Submit simple_query_form
+
+  condition:
+  - active_loop: simple_query_form
+  steps:
+  - action: simple_query_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_inform
+  - action: action_report_gen
+  - action: utter_does_help
+
+- rule: does the help 
+  steps:
+  - intent: affirm
+  - action: utter_goodbye
+  - action: utter_feedback
+
+
+- rule: save feedback
+  steps:
+  - intent: feedback
+  - action: utter_bye
+  - action: action_save_conversation
+
+- rule: connect to human
+  steps:
+  - intent: deny
+  - action: action_talk_to_agent
+
+  
+- rule: Restart the conversation
+  steps:
+  - intent: fresh_start
+  - action: action_fresh_start
+  
+- rule: always greet back
+  steps:
+  - intent: greet
+  - action: utter_greet
+  
+- rule: welcome message
+  steps:
+  - intent: welcome
+  - action: utter_entry
+  
+  
+- rule: handling single line query 2
+  steps:
+  - intent: single_query_2
+  - action: simple_query_2_form
+  - active_loop: simple_query_2_form
+  
+- rule: Submit simple_query_form_2
+
+  condition:
+  - active_loop: simple_query_2_form
+  steps:
+  - action: simple_query_2_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_avg_value
+  - action: utter_does_help
+
+
+- rule: slot resetting
+  steps:
+  - intent: slot_reset
+  - action: action_reset_slot_order
+  - action: utter_welcome_again
+  - action: utter_ask_question
+
+- rule: handling sing line query 1
+  steps:
+  - intent: single_query
+  - action: action_single_line_query_1
+  - action: utter_does_help
