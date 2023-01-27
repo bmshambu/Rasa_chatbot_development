@@ -1,0 +1,18 @@
+flight booking
+
+user: hi
+bot: hi how are you?
+
+user: i am fine
+bot: Great
+bot: how can help you?
+
+user: i want book flight ticket
+bot : okay sure pls provide count?
+
+user: 2
+bot : okay pls provide the destination
+
+user : delhi
+bot : Here are details you provided by you Count:{count} city:{city}
+

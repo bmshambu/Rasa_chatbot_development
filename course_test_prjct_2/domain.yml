@@ -1,0 +1,64 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- flight_booking
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+entities:
+- city
+- count
+slots:
+  count:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: count
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+forms:
+  booking_form:
+    required_slots:
+    - count
+    - city
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_ask_question:
+  - text: Hey! How may i help you
+  utter_ask_count:
+  - text: please provide the count
+  utter_ask_city:
+  - text: please provide the destination
+  utter_confirm:
+  - text: Here are details you provided by you Count:{count} city:{city}
+  utter_did_that_help:
+  - text: Did that help you?
+    buttons:
+    - title: Yes
+      payload: /affirm
+    - title: No
+      payload: /goodbye
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- utter_ask_question
+- utter_confirm
+- utter_greet
+- utter_happy
+- validate_booking_form
