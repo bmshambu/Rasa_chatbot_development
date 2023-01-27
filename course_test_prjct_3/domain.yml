@@ -1,0 +1,38 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- flight_booking
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- nlu_fallback
+
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_ask_question:
+  - text: Hey! How may i help you
+  utter_did_that_help:
+  - text: Did that help you?
+    buttons:
+    - title: Yes
+      payload: /affirm
+    - title: No
+      payload: /goodbye
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+actions:
+- utter_ask_question
+- utter_greet
+- utter_happy
+- action_call_openai

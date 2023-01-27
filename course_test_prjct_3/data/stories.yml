@@ -1,0 +1,48 @@
+version: "3.1"
+
+stories:
+
+# - story: happy path
+  # steps:
+  # - intent: greet
+  # - action: utter_greet
+  # - intent: mood_great
+  # - action: utter_happy
+  # - action: utter_ask_question
+  # - intent: flight_booking
+  # - action: utter_ask_count
+  # - action: utter_ask_city
+  # - action: utter_confirm
+  
+
+# - story: interactive_story_1
+  # steps:
+  # - intent: greet
+  # - action: utter_greet
+  # - intent: mood_great
+  # - action: utter_happy
+  # - action: utter_ask_question
+  # - intent: flight_booking
+  # - action: utter_ask_count
+  # - intent: flight_booking
+    # entities:
+    # - count: '2'
+  # - slot_was_set:
+    # - count: '2'
+  # - action: utter_ask_city
+  # - intent: flight_booking
+    # entities:
+    # - city: delhi
+    # - city: delhi
+  # - slot_was_set:
+    # - city: delhi
+  # - action: utter_confirm
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+  - action: utter_ask_question
+
